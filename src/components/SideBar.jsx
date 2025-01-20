@@ -19,7 +19,7 @@ const SideBar = () => {
   return (
     <nav className='transition duration-150 ease-out lg:w-[15%] xl:w-[12%]'>
       <Header isSideBar={isSideBar} setIsSideBar={setIsSideBar} />
-    {isSideBar &&   <div className="sm:min-h-[calc(100vh-80px)] bg-[#1A1E23] mx-4 mb-2 fixed bottom-0 rounded-[12px] w-[95vw] sm:w-[auto] z-[9] sm:static sm:m-0 sm:rounded-[0px] overflow-hidden">
+    {isSideBar &&   <div className="sm:min-h-[calc(100vh-80px)] bg-[#1A1E23] mb-2 fixed bottom-0 inset-x-3 rounded-[12px] sm:w-[auto] z-[9] sm:static sm:m-0 sm:rounded-[0px] overflow-hidden">
         <div className="flex text-white justify-around sm:pt-16 gap-2 sm:flex-col ">
           <div className={`flex items-center h-16 gap-2 cursor-pointer hover:text-[#2448C7]  ${item === "trending" && "bg-black text-[#2448C7]"} p-4 px-6`} onClick={() => itemSearch("trending")}>
             <IoHomeOutline size={`1.6rem`} />

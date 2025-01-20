@@ -32,7 +32,7 @@ const CardContainer = () => {
       :
       <div className='p-8'>
       <h1 className='font-semibold text-3xl text-zinc-600 dark:text-zinc-400'>{itemQuery.slice(0,1).toUpperCase()+itemQuery.slice(1)}</h1>
-      <div className='wrapper_card max-w-100 grid auto-rows-max grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] gap-5 mt-12 justify-start items-start h-[70vh]'>
+      <div className='wrapper_card max-w-100 grid auto-rows-max grid-cols-[repeat(auto-fit,minmax(9rem,1fr))] gap-5 mt-12 justify-start items-start h-[70vh]'>
         { moviesData.length > 0 && moviesData.map((item, index) => <Card content={item} key={index}/>)}
       </div>
     </div> 
