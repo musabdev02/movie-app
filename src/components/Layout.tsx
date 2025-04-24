@@ -1,12 +1,16 @@
 import { Outlet } from "react-router-dom"
+// components
 import Sidebar from "./Sidebar"
-
+import Header from "./Header"
 
 const Layout = () => {
     return (
-        <div>
+        <div className="flex">
             <Sidebar />
-            <Outlet />
+            <div className="w-full bg-blackish overflow-y-auto h-screen">
+                <Header />
+                <Outlet />
+            </div>
         </div>
     )
 }
