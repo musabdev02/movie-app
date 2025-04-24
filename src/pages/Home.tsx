@@ -1,11 +1,15 @@
 // component
 import HeroCard from "../components/home/HeroCard"
+import Moviecard from "../components/Moviecard"
 
 const Home = () => {
   return (
-    <div>
+    <>
       <HeroCard />
-    </div>
+      <div className="p-6 flex flex-wrap gap-6">
+        <Moviecard />
+      </div>
+    </>
   )
 }
 
