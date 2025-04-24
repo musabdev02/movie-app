@@ -1,19 +1,33 @@
 // components
 import Button from "../ui/Button"
-const HeroCard = () => {
+// types
+import { Movie } from "../../pages/Home";
+// helper
+import { monthName } from "../../helper";
+
+interface HeroCardProps {
+    featured: Movie | undefined;
+}
+
+const HeroCard = ({ featured }: HeroCardProps) => {
+    if(!featured) return null;
     return (
         <div
             className="w-full h-[500px] bg-no-repeat bg-cover bg-center"
             style={{
-                backgroundImage: `url('src/assets/placeholder.jpg')`,
+                backgroundImage: `url('https://image.tmdb.org/t/p/original/${featured?.backdrop_path}')`,
             }}
         >
             <div className="flex flex-col justify-end h-full gap-3 text-white p-12">
-                <h2 className="text-6xl font-medium">Insider</h2>
+                <h2 className="text-6xl font-medium">{featured?.title}</h2>
                 <div className="flex gap-2 text-gray-300">
-                    <p>2022 |</p>
-                    <p>Comedy |</p>
-                    <p>1 Season</p>
+                    <p>
+                        {
+                           featured?.release_date.slice(8) +
+                           '-' + monthName(featured?.release_date.slice(5, 7))+
+                           '-' + featured?.release_date.slice(0, 4)
+                        }
+                    </p>
                 </div>
                 <div className="mt-2 flex items-center gap-3">
                     <Button text="Learn More" varient="primary" />
