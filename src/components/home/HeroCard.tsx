@@ -15,8 +15,9 @@ const HeroCard = () => {
                     <p>Comedy |</p>
                     <p>1 Season</p>
                 </div>
-                <div className="mt-2">
-                    <Button text="Learn More" />
+                <div className="mt-2 flex items-center gap-3">
+                    <Button text="Learn More" varient="primary" />
+                    <Button text="Add to favorite" varient="secondary" />
                 </div>
             </div>
         </div>

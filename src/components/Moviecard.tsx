@@ -1,3 +1,5 @@
+// components
+import Button from "./ui/Button"
 // helper
 import { truncate } from "../helper"
 const Moviecard = () => {
@@ -13,6 +15,9 @@ const Moviecard = () => {
                     <p>2022 |</p>
                     <p>Action Comedy</p>
                 </div>
+            </div>
+            <div className="absolute top-2 right-2">
+                <Button varient="secondary" size="regular" text="Add to faviorate"/>
             </div>
         </div>
     )
