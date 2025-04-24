@@ -3,7 +3,7 @@
 import { Search, Bell } from "lucide-react"
 const Header = () => {
   return (
-    <div className="w-full bg-transparent flex justify-between px-12 py-7 text-gray-300">
+    <div className="w-full bg-transparent flex justify-between px-12 py-7 text-gray-300 -mb-20">
         <div className="flex gap-8">
             <p>Movies</p>
             <p>Series</p>

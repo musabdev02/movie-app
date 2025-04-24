@@ -1,8 +1,11 @@
-
+// component
+import HeroCard from "../components/home/HeroCard"
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <HeroCard />
+    </div>
   )
 }
 
