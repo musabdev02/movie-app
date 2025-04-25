@@ -24,7 +24,7 @@ const HeroCard = ({ featured }: HeroCardProps) => {
                     <p>
                         {
                            featured?.release_date.slice(8) +
-                           '-' + monthName(featured?.release_date.slice(5, 7))+
+                           '-' + monthName(`${featured?.release_date.slice(5, 7)}`)+
                            '-' + featured?.release_date.slice(0, 4)
                         }
                     </p>

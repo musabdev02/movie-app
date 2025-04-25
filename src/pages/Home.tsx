@@ -10,6 +10,7 @@ export type Movie = {
   id: number;
   title: string;
   backdrop_path: string;
+  poster_path?: string
   release_date: string;
 };
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
     queryFn: handleRq,
   });
 
-  const [featuredMovie]: [Movie | undefined, Movie[]] = useMemo(() => {
+  const [featuredMovie, restMovies]: [Movie | undefined, Movie[]] = useMemo(() => {
     if (data?.length) {
       return [data[0], data.slice(1)];
     }
@@ -37,10 +38,9 @@ const Home = () => {
 
   useEffect(() => {
     if (!featuredMovie) return;
+    const { title, id, release_date, backdrop_path } = featuredMovie;
 
     console.log(featuredMovie)
-    const { title, id, release_date, backdrop_path } = featuredMovie;
-  
     setHeroMovie({
       title,
       id,
@@ -53,7 +53,7 @@ const Home = () => {
     <>
       <HeroCard featured={HeroMovie}/>
       <div className="p-6 flex flex-wrap gap-6">
-        <Moviecard />
+        {restMovies.map((item) => <Moviecard key={item?.id} movie={item}/>)}
       </div>
     </>
   )
