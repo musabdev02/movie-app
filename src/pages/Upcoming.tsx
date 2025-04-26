@@ -2,6 +2,8 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 // components
 import Ftu from "../components/Ftu";
 import Moviecard from "../components/Moviecard";
+import Loading from "../components/ui/Loading";
+import ErrorDisplay from "../components/ui/ErrorDisplay";
 // types
 import { Movie } from "./Home";
 // queries
@@ -16,10 +18,17 @@ const Upcoming = () => {
         return data.results as Movie[];
     };
 
-    const { data } = useQuery<Movie[]>({
+    const { data, isLoading, error } = useQuery<Movie[]>({
         queryKey: ['upcomingMovies'],
         queryFn: handleRq,
     });
+
+    if(isLoading){
+        return <Loading />
+    }
+    if(error){
+        return <ErrorDisplay message={error.message}/>
+    }
 
     return (
         <Ftu heading="Upcoming shows">

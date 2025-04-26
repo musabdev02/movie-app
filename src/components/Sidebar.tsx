@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 // icons
 import { Coffee, House, Heart, TrendingUp, Calendar } from 'lucide-react';
 
@@ -32,6 +33,12 @@ const sideLinks: SidebarItem[] = [
 ];
 
 const Sidebar = () => {
+    const [active, setActive] = useState<string>('home');
+    const location = useLocation();
+
+    useEffect(() => {
+        setActive(location.pathname.slice(1))
+    }, [location.pathname]);
 
     return (
         <div className="w-[16%] bg-blackish h-screen p-6 overflow-y-hidden shadow-[2px_0px_90px_0px_rgba(97,0,194,0.4)] relative">
@@ -44,7 +51,8 @@ const Sidebar = () => {
             <div className='mt-10 text-white flex flex-col gap-7 p-2'>
                 {
                     sideLinks.map((item) => (
-                        <Link key={item.destination} to={item.destination} className='flex items-center gap-2 text-gray-200'>
+                        <Link key={item.destination} to={item.destination} onClick={() => setActive(item.title)} className={`focus:text-white hover:text-white flex items-center gap-2 text-gray-400
+                         ${active.toLowerCase() === item.destination.slice(1) && 'text-white'}`}>
                             <item.icon size={20}/>
                             <p className='text-md'>{item.title}</p>
                         </Link>

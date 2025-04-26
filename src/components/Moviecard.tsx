@@ -13,7 +13,7 @@ interface MovieCardProps {
 const Moviecard = ({ movie }: MovieCardProps) => {
     return (
         <div className="w-73 h-[460px] rounded-lg overflow-hidden relative">
-            <img src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
+            <img loading="lazy" src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
                 className="w-full h-full"
             ></img>
             <div className="bg-gradient-to-br from-white to-gray-400 shadow-md border border-gray-200 backdrop-blur-lg
