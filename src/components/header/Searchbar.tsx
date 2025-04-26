@@ -1,5 +1,5 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
-import { useEffect, useState } from "react";
+import { Ref, useEffect, useState } from "react";
 // component
 import Moviesearch from "./Moviesearch"
 import Loading from "../ui/Loading"
@@ -15,9 +15,10 @@ export type SearchMovie = {
   release_date: string;
 }
 
-const Searchbar = () => {
+const Searchbar = ({ inputRef }: {inputRef: Ref<HTMLInputElement>}) => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState<string>("");
+  
 
   const handleRq = async ({ signal }: {signal: AbortSignal | null}): Promise<SearchMovie[]> => {
     const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(searchTerm)}&api_key=${API_KEY}`, { signal })
@@ -35,7 +36,7 @@ const Searchbar = () => {
     };
   }, [searchTerm]);
   
-  const { data, isLoading, error } = useQuery<SearchMovie[]>({
+  const { data, isLoading } = useQuery<SearchMovie[]>({
     queryKey: ['searchMovies', debouncedSearchTerm],
     queryFn: handleRq,
     staleTime: 5 * 60 * 1000,
@@ -43,21 +44,14 @@ const Searchbar = () => {
   });
   
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
   return (
     <div className="relative z-9">
       <div>
-        <input onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search Movies..." autoCorrect="false" className="outline-none border border-gray-600  px-4 py-2  bg-blackish rounded-t-md"/>
+        <input ref={inputRef} onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search Movies..." autoCorrect="false" className="outline-none border border-gray-600  px-4 py-2  bg-blackish rounded-t-md"/>
       </div>
       <div className={`w-full ${debouncedSearchTerm.length > 0 ? 'block': 'hidden'} bg-blackish h-96 rounded-b-md absolute border border-gray-700 overflow-y-auto`}>
         {
           isLoading && <Loading />
-        }
-        {
-          error && <p className=" h-full flex items-center justify-center w-[70%] text-center">{error.message}</p>
         }
         {
           data && data?.map(item => <Moviesearch key={item.id} movie={item}/>)
