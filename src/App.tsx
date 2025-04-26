@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Trending from "./pages/Trending";
 import Upcoming from "./pages/Upcoming";
+import Favorites from "./pages/Favorites";
 // wrapper
 
 const App: React.FC = () => {
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
+            <Route path="/favourites" element={<Favorites />} />
             <Route path="/trending" element={<Trending />} />
             <Route path="/upcoming" element={<Upcoming />} />
           </Route>
