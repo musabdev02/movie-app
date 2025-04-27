@@ -16,8 +16,8 @@ const sideLinks: SidebarItem[] = [
         icon: House,
     },
     {
-        title: "Favourites",
-        destination: "/favourites",
+        title: "Favorites",
+        destination: "/favorites",
         icon: Heart,
     },
     {

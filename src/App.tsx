@@ -15,7 +15,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/favourites" element={<Favorites />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route path="/trending" element={<Trending />} />
             <Route path="/upcoming" element={<Upcoming />} />
           </Route>

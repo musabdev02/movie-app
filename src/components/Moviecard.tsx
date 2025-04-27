@@ -42,11 +42,11 @@ const Moviecard = ({ movie }: MovieCardProps) => {
             localStorage.setItem('favorites', JSON.stringify(favorites));
             setIsFavorite(true);
         }
-    }
+    };
 
     return (
         <div className="w-73 h-[460px] rounded-lg overflow-hidden relative">
-            <img loading="lazy" src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
+            <img loading="lazy" src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}` : `https://placehold.co/310x480?text=Not Found&?font=poppins`}
                 className="w-full h-full"
             ></img>
             <div className="bg-gradient-to-br from-white to-gray-400 shadow-md border border-gray-200 backdrop-blur-lg
