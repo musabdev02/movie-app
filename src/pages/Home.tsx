@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <>
       <HeroCard featured={featuredMovie} />
-      <div className="p-6 flex flex-wrap gap-6">
+      <div className="p-4 md:p-6 flex flex-wrap gap-2 md:gap-6">
         {restMovies.map((item) => <Moviecard key={item?.id} movie={item} />)}
       </div>
     </>

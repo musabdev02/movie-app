@@ -41,7 +41,7 @@ const Sidebar = () => {
     }, [location.pathname]);
 
     return (
-        <div className="w-[16%] bg-blackish h-screen p-6 overflow-y-hidden shadow-[2px_0px_90px_0px_rgba(97,0,194,0.4)] relative">
+        <div className="w-[16%] hidden sm:block bg-blackish h-screen p-6 overflow-y-hidden shadow-[2px_0px_90px_0px_rgba(97,0,194,0.4)] relative">
             {/* logo */}
             <Link to={"/"} className='flex text-white gap-2 p-2'>
                 <img src="src/assets/icon.png" alt="logo" className='w-8'/>

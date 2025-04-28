@@ -45,15 +45,15 @@ const Moviecard = ({ movie }: MovieCardProps) => {
     };
 
     return (
-        <div className="w-73 h-[460px] rounded-lg overflow-hidden relative">
+        <div className="w-[48%] h-[250px] md:w-73 md:h-[460px] rounded-lg overflow-hidden relative">
             <img loading="lazy" src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}` : `https://placehold.co/310x480?text=Not Found&?font=poppins`}
-                className="w-full h-full"
+                className="w-full h-full object-cover"
             ></img>
             <div className="bg-gradient-to-br from-white to-gray-400 shadow-md border border-gray-200 backdrop-blur-lg
       absolute w-full p-4 bottom-0 rounded-b-lg opacity-90">
-                <h3 title={`${movie?.title}`} className="font-medium text-lg leading-6 text-gray-800">
+                <h3 title={`${movie?.title}`} className="font-medium text-sm md:text-lg leading-4 md:leading-6 text-gray-800">
                     {truncate(`${movie?.title}`)}</h3>
-                <div className="flex gap-2 mt-2 text-sm text-gray-700 font-medium">
+                <div className="hidden md:flex gap-2 mt-2 text-sm text-gray-700 font-medium">
                     <p>
                         {
                             movie?.release_date.slice(8) +

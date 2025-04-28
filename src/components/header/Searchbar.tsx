@@ -47,7 +47,7 @@ const Searchbar = ({ inputRef }: {inputRef: Ref<HTMLInputElement>}) => {
   return (
     <div className="relative z-9">
       <div>
-        <input ref={inputRef} onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search Movies..." autoCorrect="false" className="outline-none border border-gray-600  px-4 py-2  bg-blackish rounded-t-md"/>
+        <input ref={inputRef} onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search Movies..." autoCorrect="false" className="outline-none border border-gray-600  px-4 py-2  bg-blackish rounded-t-md w-full"/>
       </div>
       <div className={`w-full ${debouncedSearchTerm.length > 0 ? 'block': 'hidden'} bg-blackish h-96 rounded-b-md absolute border border-gray-700 overflow-y-auto`}>
         {
