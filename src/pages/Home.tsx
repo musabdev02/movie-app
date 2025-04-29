@@ -42,7 +42,7 @@ const Home = () => {
       initialPageParam: 1,
     });
   
-    const loaderRef = useRef(null);
+    const loaderRef = useRef<HTMLDivElement | null>(null);
   
 
     useEffect(() => {
@@ -90,7 +90,7 @@ const Home = () => {
   
         <div ref={loaderRef} className="text-center py-8">
           {isFetchingNextPage
-            ? <p className="text-white">Loading more...</p>
+            ? <Loading />
             : hasNextPage
               ? <p>Scroll to load more...</p>
               : <p>No more movies</p>}
