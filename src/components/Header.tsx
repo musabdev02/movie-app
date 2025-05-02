@@ -26,7 +26,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="w-full bg-transparent flex justify-between px-2 md:px-12 py-6 text-gray-300 -mb-20 h-[90px]">
+    <div className="w-full bg-transparent flex justify-between px-2 md:px-12 py-6 text-gray-300 -mb-20 h-[80px]">
         <div className="md:flex gap-8 hidden">
             <p>Movies</p>
             <p>Series</p>

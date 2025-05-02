@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 // icons
 import { House, Heart, TrendingUp, Calendar } from 'lucide-react';
-
+import logo from '../assets/icon.png'
 type SidebarItem = {
     title: string;
     destination: string;
@@ -44,7 +44,7 @@ const Sidebar = () => {
         <div className="w-[16%] hidden sm:block bg-blackish h-screen p-6 overflow-y-hidden shadow-[2px_0px_90px_0px_rgba(97,0,194,0.4)] relative">
             {/* logo */}
             <Link to={"/"} className='flex text-white gap-2 p-2'>
-                <img src="src/assets/icon.png" alt="logo" className='w-8'/>
+                <img src={logo} alt="logo" className='w-8'/>
                 <h3 className='font-bold text-2xl'>Watch</h3>
             </Link>
             {/* list */}

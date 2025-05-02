@@ -12,7 +12,7 @@ interface HeroCardProps {
 const HeroCard = ({ featured }: HeroCardProps) => {
     if(!featured) return null;
     return (
-        <div className="w-full h-[550px] md:h-[500px] bg-no-repeat bg-cover bg-center"
+        <div className="w-full h-[550px] bg-no-repeat bg-cover bg-center"
             style={{
                 backgroundImage: `url('https://image.tmdb.org/t/p/original/${featured?.backdrop_path}')`,
             }}
