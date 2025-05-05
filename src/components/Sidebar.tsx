@@ -45,7 +45,7 @@ const Sidebar = () => {
             {/* logo */}
             <Link to={"/"} className='flex text-white gap-2 p-2'>
                 <img src={logo} alt="logo" className='w-8' />
-                <h3 className='font-bold text-2xl'>Watch</h3>
+                <h3 className='font-bold text-2xl'>iPlex</h3>
             </Link>
             {/* list */}
             <div className='mt-10 text-white flex flex-col gap-7 p-2'>

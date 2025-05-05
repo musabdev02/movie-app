@@ -1,54 +1,31 @@
-# React + TypeScript + Vite
+# 🎬 iPlex – Movie Discovery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**iPlex** is a beautifully designed modern web application that allows users to explore trending and upcoming movies, search for any movie by name, and build their own favorites list — all in a sleek and intuitive interface.
 
-Currently, two official plugins are available:
+![iPlex Screenshot](./src/assets/iplex-shot.png) 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ✨ **Modern UI**: Elegant and responsive design powered by Tailwind CSS.
+- 🔥 **Trending & Upcoming Movies**: Discover the latest buzz in cinema.
+- 🔍 **Search**: Find movies by title with instant suggestions.
+- ❤️ **Favorites**: Mark and save your favorite movies — persistently stored via local storage.
+- ⚡ **Caching & Performance**: Powered by React Query to reduce API calls and boost speed.
+- 📦 **Type-Safe**: Developed in TypeScript for a robust development experience.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🧰 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **React** – Frontend UI framework  
+- **TypeScript** – Static type checking  
+- **Tailwind CSS** – Utility-first modern CSS  
+- **Lucide Icons** – Iconography  
+- **React Query** – Data fetching & caching  
+- **TMDB API** – Movie data provider
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🔧 Setup
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/musabdev02/movie-app.git
+   cd movie-app
