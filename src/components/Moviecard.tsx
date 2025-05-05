@@ -46,7 +46,7 @@ const Moviecard = ({ movie }: MovieCardProps) => {
 
     return (
         <div className="w-[48%] h-[250px] md:w-73 md:h-[460px] rounded-lg overflow-hidden relative">
-            <img loading="lazy" src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}` : `https://placehold.co/310x480?text=Not Found&?font=poppins`}
+            <img loading="lazy" alt={movie?.title} src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}` : `https://placehold.co/310x480?text=Not Found&?font=poppins`}
                 className="w-full h-full object-cover"
             ></img>
             <div className="bg-gradient-to-br from-white to-gray-400 shadow-md border border-gray-200 backdrop-blur-lg

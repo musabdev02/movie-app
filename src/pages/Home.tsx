@@ -88,7 +88,7 @@ const Home = () => {
           ))}
         </div>
   
-        <div ref={loaderRef} className="text-center py-8">
+        <div ref={loaderRef} className="text-center py-8 text-white">
           {isFetchingNextPage
             ? <Loading />
             : hasNextPage

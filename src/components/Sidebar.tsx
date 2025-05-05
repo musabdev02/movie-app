@@ -44,7 +44,7 @@ const Sidebar = () => {
         <div className="w-[16%] hidden sm:block bg-blackish h-screen p-6 overflow-y-hidden shadow-[2px_0px_90px_0px_rgba(97,0,194,0.4)] relative">
             {/* logo */}
             <Link to={"/"} className='flex text-white gap-2 p-2'>
-                <img src={logo} alt="logo" className='w-8'/>
+                <img src={logo} alt="logo" className='w-8' />
                 <h3 className='font-bold text-2xl'>Watch</h3>
             </Link>
             {/* list */}
@@ -53,7 +53,7 @@ const Sidebar = () => {
                     sideLinks.map((item) => (
                         <Link key={item.destination} to={item.destination} onClick={() => setActive(item.title)} className={`focus:text-white hover:text-white flex items-center gap-2 text-gray-400
                          ${active.toLowerCase() === item.destination.slice(1) && 'text-white'}`}>
-                            <item.icon size={20}/>
+                            <item.icon size={20} />
                             <p className='text-md'>{item.title}</p>
                         </Link>
                     ))

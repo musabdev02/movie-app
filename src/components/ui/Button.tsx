@@ -21,6 +21,8 @@ const Button = ({ text, varient, size, onClick }: ButtonProps) => {
         ) :
           (
             <button
+            aria-label="Add to favorite"
+            title="favorite"
              className={`${size === 'regular' ? 'p-1 md:p-2': 'p-3'} rounded-xl bg-gradient-to-br from-white to-gray-400 shadow-md border border-gray-200 backdrop-blur-lg cursor-pointer text-[#6100C2]`}>
               <Heart size={20}/>
             </button>
