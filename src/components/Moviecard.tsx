@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 // components
 import Button from "./ui/Button"
 // type
-import { Movie } from "../pages/Home"
+import { Movie, FavoritesItems } from "../types"
 // helper
 import { monthName, truncate } from "../helper"
 
@@ -10,12 +10,6 @@ interface MovieCardProps {
     movie: Movie | undefined
 };
 
-export interface FavoritesItems {
-    id: number | undefined;
-    title: string | undefined;
-    poster_path: string | undefined;
-    release_date: string | undefined;
-}
 
 const Moviecard = ({ movie }: MovieCardProps) => {
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
@@ -32,7 +26,7 @@ const Moviecard = ({ movie }: MovieCardProps) => {
             const newFavorites = favorites.filter(item => item.id !== movie?.id);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
             setIsFavorite(false);
-        }else{
+        } else {
             favorites.push({
                 id: movie?.id,
                 title: movie?.title,
@@ -65,8 +59,8 @@ const Moviecard = ({ movie }: MovieCardProps) => {
             </div>
             <div className="absolute top-2 right-2" onClick={toggleFavorite}>
                 {
-                    isFavorite ? <Button varient="primary" text="Clear" />:
-                    <Button varient="secondary" size="regular" text="Add to faviorate" />
+                    isFavorite ? <Button varient="primary" text="Clear" /> :
+                        <Button varient="secondary" size="regular" text="Add to faviorate" />
                 }
             </div>
         </div>

@@ -1,7 +1,7 @@
 // components
 import Button from "../ui/Button"
 // types
-import { Movie } from "../../pages/Home";
+import { Movie } from "../../types";
 // helper
 import { monthName } from "../../helper";
 

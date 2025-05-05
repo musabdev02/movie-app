@@ -3,17 +3,11 @@ import { Ref, useEffect, useState } from "react";
 // component
 import Moviesearch from "./Moviesearch"
 import Loading from "../ui/Loading"
-
 // queries
 import { useQuery } from "@tanstack/react-query"
+// type
+import { SearchMovie } from "../../types";
 
-
-export type SearchMovie = {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-}
 
 const Searchbar = ({ inputRef }: {inputRef: Ref<HTMLInputElement>}) => {
   const [searchTerm, setSearchTerm] = useState<string>('');

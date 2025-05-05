@@ -4,7 +4,7 @@ import Moviecard from "../components/Moviecard";
 // icons
 import { TreePalm, Heart } from 'lucide-react';
 // type
-import { Movie } from "./Home";
+import { Movie } from "../types";
 
 const Favourites = () => {
   const favorites = JSON.parse(localStorage.getItem("favorites") || '[]');
