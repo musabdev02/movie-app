@@ -17,7 +17,8 @@ const Home = () => {
     isLoading,
     loaderRef,
     isFetchingNextPage,
-    hasNextPage
+    hasNextPage,
+    refetch,
   } = useFetchMovies({ endPoint: "now_playing" });
 
 
@@ -29,7 +30,7 @@ const Home = () => {
   }, [movies]);
 
   if (isLoading) return <Loading />;
-  if (error) return <ErrorDisplay message={(error as Error).message} />;
+  if (error) return <ErrorDisplay message={(error as Error).message} onClick={() => refetch()}/>;
 
   return (
     <div className="min-h-screen">

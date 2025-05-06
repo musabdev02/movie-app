@@ -22,7 +22,8 @@ const useFetchMovies = ({ endPoint }: { endPoint: string }) => {
         isLoading,
         fetchNextPage,
         hasNextPage,
-        isFetchingNextPage
+        isFetchingNextPage,
+        refetch,
     } = useInfiniteQuery({
         queryKey: [endPoint as string],
         queryFn: fetchMovies,
@@ -61,7 +62,7 @@ const useFetchMovies = ({ endPoint }: { endPoint: string }) => {
         return data?.pages.flatMap((page) => page.results) || [];
     }, [data]);
 
-    return { movies: flatMovies, loaderRef, error, isLoading, isFetchingNextPage, hasNextPage }
+    return { movies: flatMovies, loaderRef, error, isLoading, isFetchingNextPage, hasNextPage, refetch }
 
 };
 

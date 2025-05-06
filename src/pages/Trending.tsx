@@ -14,12 +14,13 @@ const Trending = () => {
         isLoading,
         loaderRef,
         isFetchingNextPage,
-        hasNextPage
+        hasNextPage,
+        refetch,
     } = useFetchMovies({ endPoint: "popular" });
 
     if (isLoading) return <Loading />
 
-    if (error) return <ErrorDisplay message={error.message} />
+    if (error) return <ErrorDisplay message={error.message} onClick={() => refetch()}/>
 
 
     return (

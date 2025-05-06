@@ -17,3 +17,8 @@ export type SearchMovie = {
   poster_path: string;
   release_date: string;
 }
+export type SidebarItem = {
+  title: string;
+  destination: string;
+  icon: React.ElementType;
+};
