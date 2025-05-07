@@ -28,7 +28,7 @@ const Header = ({ openSidebar }: {openSidebar: React.Dispatch<React.SetStateActi
 
   return (
     <div className="w-full bg-transparent flex justify-between px-4 md:px-12 py-6 text-gray-300 -mb-20 h-[80px]">
-        <div className="md:flex gap-8 hidden">
+        <div className="lg:flex gap-8 hidden">
             <p>Movies</p>
             <p>Series</p>
             <p>Documentaries</p>

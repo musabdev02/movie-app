@@ -12,13 +12,13 @@ interface HeroCardProps {
 const HeroCard = ({ featured }: HeroCardProps) => {
     if(!featured) return null;
     return (
-        <div className="w-full h-[330px] md:h-[550px] bg-no-repeat bg-cover bg-center"
+        <div className="w-full h-[330px] md:h-[400px] lg:h-[550px] bg-no-repeat bg-cover bg-center"
             style={{
                 backgroundImage: `url('https://image.tmdb.org/t/p/original/${featured?.backdrop_path}')`,
             }}
         >
             <div className="flex flex-col justify-end h-full gap-3 text-white p-6 md:p-12">
-                <h2 className="text-3xl md:text-6xl font-bold">{featured?.title}</h2>
+                <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold">{featured?.title}</h2>
                 <div className="flex gap-2 text-gray-300">
                     <p>
                         {
