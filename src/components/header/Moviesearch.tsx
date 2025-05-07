@@ -1,4 +1,4 @@
-import { SearchMovie } from "./Searchbar"
+import { SearchMovie } from "../../types"
 // helper
 import { monthName, truncate } from "../../helper"
 interface MovieSearchProp {
