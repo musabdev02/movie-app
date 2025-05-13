@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Trending from "./pages/Trending";
 import Upcoming from "./pages/Upcoming";
 import Favorites from "./pages/Favorites";
-// wrapper
+import Moviedetail from "./pages/Moviedetail";
 
 const App: React.FC = () => {
   return (
@@ -19,6 +19,7 @@ const App: React.FC = () => {
             <Route path="/trending" element={<Trending />} />
             <Route path="/upcoming" element={<Upcoming />} />
           </Route>
+          <Route path="/movie/:id" element={<Moviedetail />}/>
         </Routes>
     </BrowserRouter>
   )

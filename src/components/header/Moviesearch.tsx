@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { SearchMovie } from "../../types"
 // helper
 import { monthName, truncate } from "../../helper"
@@ -7,7 +8,7 @@ interface MovieSearchProp {
 
 const Moviesearch = ({ movie }: MovieSearchProp) => {
   return (
-    <div className="flex gap-2 p-2 hover:bg-[#282725] cursor-pointer">
+    <Link to={`/movie/${movie?.id}`} className="flex gap-2 p-2 hover:bg-[#282725] cursor-pointer">
       <div className="w-[25%] md:w-[18%]">
         <img
           src={movie?.poster_path ? `https://image.tmdb.org/t/p/w92/${movie?.poster_path}` : 'https://placehold.co/50x50/png'}
@@ -23,7 +24,7 @@ const Moviesearch = ({ movie }: MovieSearchProp) => {
           }
         </p>
       </div>
-    </div>
+    </Link>
   )
 }
 

@@ -16,7 +16,7 @@ const Header = ({ openSidebar }: {openSidebar: React.Dispatch<React.SetStateActi
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (inputRef.current && !inputRef.current.contains(event.target as Node)) {
-        setIsSearch(false);
+        // setIsSearch(false);
       }
     };
 
