@@ -4,15 +4,14 @@ import { useParams } from "react-router-dom"
 // components
 import Mainhero from "../components/moviedetail/Mainhero";
 const Credits = lazy(() => import('../components/moviedetail/Credits'));
-// icons
-import { Earth } from 'lucide-react';
-// query
-import { useQuery } from "@tanstack/react-query";
+import Movielayout from "../components/Movielayout";
 import Loading from "../components/ui/Loading";
 import ErrorDisplay from "../components/ui/ErrorDisplay";
+import Details from "../components/moviedetail/Details";
+// query
+import { useQuery } from "@tanstack/react-query";
 // type
 import { HeroDetails } from "../types";
-import Movielayout from "../components/Movielayout";
 
 
 
@@ -35,7 +34,7 @@ const Moviedetail = () => {
     if (error) return <Movielayout><ErrorDisplay message={error.message} /></Movielayout> 
 
     const mainHeroData = {
-        poster_path: data?.poster_path || "https://placehold.co/310x480?text=Not Found&?font=poppins",
+        poster_path: data?.poster_path || "https://placehold.co/310x480?text=Not Poster&?font=poppins",
         backdrop_path: data?.backdrop_path || "",
         title: data?.title || "No title",
         tagline: data?.tagline || "No tagline",
@@ -44,6 +43,7 @@ const Moviedetail = () => {
         genres: data?.genres || [],
     };
 
+    console.log(data)
 
     return (
         <div className="bg-blackish pb-10">
@@ -60,39 +60,7 @@ const Moviedetail = () => {
                     </div>
                 </div>
                 {/* right */}
-                <div className="py-8 px-4 text-white">
-                    <a href={data?.homepage || '#'} target="_blank" className="flex gap-2 items-center text-blue-400 hover:underline"> <Earth size={18} />Vist Homepage</a>
-                    <div className="mt-8 flex flex-col gap-6">
-                        <div>
-                            <h4 className="font-medium text-sm text-gray-400">Status</h4>
-                            <p>{data?.status}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-medium text-sm text-gray-400">Original Language</h4>
-                            <p>{data?.spoken_languages.map(item => item.english_name)}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-medium text-sm text-gray-400">Other Languages</h4>
-                            <p>English, Hindi</p>
-                        </div>
-                        <div>
-                            <h4 className="font-medium text-sm text-gray-400">Budget</h4>
-                            <p>{data?.budget ? `$${Number(data.budget).toLocaleString()}`: "-"}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-medium text-sm text-gray-400">Revenue</h4>
-                            <p>{data?.revenue ? `$${Number(data.revenue).toLocaleString()}`: "-"}</p>
-                        </div>
-                        <div>
-                            <h4 className="font-medium text-sm text-gray-400">Keywords</h4>
-                            <div className="flex mt-2 gap-2 flex-wrap">
-                                <p className="text-xs bg-gray-800 p-2 rounded-sm text-gray-300">missing child</p>
-                                <p className="text-xs bg-gray-800 p-2 rounded-sm text-gray-300">consulate</p>
-                                <p className="text-xs bg-gray-800 p-2 rounded-sm text-gray-300">conspiracy</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               {data && <Details data={data}/>}
             </div>
         </div>
     )

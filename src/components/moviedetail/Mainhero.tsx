@@ -18,14 +18,15 @@ interface MainHeroProps {
 
 
 const Mainhero = ({ poster_path, title, tagline, backdrop_path, overview, release_date, genres }: MainHeroProps) => {
+    
     return (
         <div className="relative h-[650px] bg-cover bg-center"
-            style={{ backgroundImage: `url('https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${backdrop_path}')`, }}>
+            style={{ backgroundImage: ` url('https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces${backdrop_path}')`, }}>
             <div className="absolute inset-0 bg-gray-900/70"></div>
 
             <div className="relative z-10 flex justify-center items-center gap-4 h-full text-white p-4">
 
-                <img src={`https://media.themoviedb.org/t/p/w300_and_h450_bestv2${poster_path}`} alt="logo" className="rounded-md" />
+                <img src={poster_path.startsWith('/') ? `https://media.themoviedb.org/t/p/w300${poster_path}` : `${poster_path}`}  alt="poster" className="rounded-md" />
                 <div className="w-[50%] flex flex-col gap-8">
                     <div>
                         <h3 className="text-4xl font-bold">{title}</h3>
@@ -35,7 +36,7 @@ const Mainhero = ({ poster_path, title, tagline, backdrop_path, overview, releas
                             <p>{
                                release_date ? release_date.slice(8) +
                                 '/' + monthName(`${release_date.slice(5, 7)}`).slice(0, 3) +
-                                '/' + release_date.slice(0, 4) : "none"
+                                '/' + release_date.slice(0, 4) : "-"
                             }</p>
                             <p>{genres.slice(0, 2).map(g => g.name).join('/')}</p>
                             <p>01,49m</p>
