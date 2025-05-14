@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { useAlert } from "../context/AlertContext"
 // components
 import Button from "./ui/Button"
 // type
@@ -14,6 +15,8 @@ interface MovieCardProps {
 
 const Moviecard = ({ movie }: MovieCardProps) => {
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
+    const navigate = useNavigate();
+    const { showAlert } = useAlert();
 
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem('favorites') || '[]') as FavoritesItems[];
@@ -21,12 +24,13 @@ const Moviecard = ({ movie }: MovieCardProps) => {
     }, [movie]);
 
 
-    const toggleFavorite = () => {
+    const toggleFavorite = (): void => {
         const favorites = JSON.parse(localStorage.getItem('favorites') || '[]') as FavoritesItems[];
         if (favorites.some((item: FavoritesItems) => item.id === movie?.id)) {
             const newFavorites = favorites.filter(item => item.id !== movie?.id);
             localStorage.setItem('favorites', JSON.stringify(newFavorites));
             setIsFavorite(false);
+            showAlert("Removed from favorite", 'error', 2000);
         } else {
             favorites.push({
                 id: movie?.id,
@@ -36,11 +40,25 @@ const Moviecard = ({ movie }: MovieCardProps) => {
             });
             localStorage.setItem('favorites', JSON.stringify(favorites));
             setIsFavorite(true);
+            showAlert("Added to favorite", 'success', 2000);
         }
+    };
+    const navigateToMovie = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+        const target = e.target as HTMLElement;
+        if (
+            target.closest('button') ||
+            target.closest('svg') ||
+            target.closest('path')
+        ) {
+            
+            return;
+        }
+    
+        navigate(`/movie/${movie?.id}`);
     };
 
     return (
-        <Link to={`/movie/${movie?.id}`} className="w-[48%] sm:w-[32%] md:w-[48%] h-[250px] sm:h-[320px] md:h-[400px] lg:w-73 lg:h-[460px] rounded-lg overflow-hidden relative">
+        <div onClick={(e) => navigateToMovie(e)} className="w-[48%] sm:w-[32%] md:w-[48%] h-[250px] sm:h-[320px] md:h-[400px] lg:w-73 lg:h-[460px] rounded-lg overflow-hidden relative cursor-pointer">
             <img loading="lazy" alt={movie?.title} src={movie?.poster_path ? `https://image.tmdb.org/t/p/w500/${movie?.poster_path}` : `https://placehold.co/310x480?text=Not Found&?font=poppins`}
                 className="w-full h-full object-cover"
             ></img>
@@ -60,11 +78,11 @@ const Moviecard = ({ movie }: MovieCardProps) => {
             </div>
             <div className="absolute top-2 right-2" onClick={toggleFavorite}>
                 {
-                    isFavorite ? <Button varient="primary" text="Clear" /> :
+                    isFavorite ? <Button varient="secondary" text="clear" /> :
                         <Button varient="secondary" size="regular" text="Add to faviorate" />
                 }
             </div>
-        </Link>
+        </div>
     )
 }
 
