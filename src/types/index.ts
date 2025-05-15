@@ -43,6 +43,8 @@ export type HeroDetails = {
   poster_path: string,
   backdrop_path: string,
   overview: string,
+  runtime: number,
+  vote_average: number,
   release_date: string,
   genres: Genre[],
   homepage: string,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import { useAlert } from "../context/AlertContext"
 // components
 import Button from "./ui/Button"
@@ -16,6 +16,7 @@ interface MovieCardProps {
 const Moviecard = ({ movie }: MovieCardProps) => {
     const [isFavorite, setIsFavorite] = useState<boolean>(false);
     const navigate = useNavigate();
+    const location = useLocation();
     const { showAlert } = useAlert();
 
     useEffect(() => {
@@ -53,8 +54,8 @@ const Moviecard = ({ movie }: MovieCardProps) => {
             
             return;
         }
-    
-        navigate(`/movie/${movie?.id}`);
+
+        navigate(`/movie/${movie?.id}`, {state: location.pathname});
     };
 
     return (

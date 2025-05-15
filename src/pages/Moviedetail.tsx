@@ -39,11 +39,11 @@ const Moviedetail = () => {
         title: data?.title || "No title",
         tagline: data?.tagline || "No tagline",
         overview: data?.overview || "No Overview",
+        runtime: data?.runtime || 0,
+        vote_average: data?.vote_average || 0,
         release_date: data?.release_date || "Unknown",
         genres: data?.genres || [],
     };
-
-    console.log(data)
 
     return (
         <div className="bg-blackish pb-10">
