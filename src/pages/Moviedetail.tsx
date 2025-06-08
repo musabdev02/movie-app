@@ -13,6 +13,9 @@ import { useQuery } from "@tanstack/react-query";
 // type
 import { HeroDetails } from "../types";
 
+// images
+import posterPlaceholder from '/poster_placeholder.svg'
+
 
 
 const Moviedetail = () => {
@@ -34,7 +37,7 @@ const Moviedetail = () => {
     if (error) return <Movielayout><ErrorDisplay message={error.message} /></Movielayout> 
 
     const mainHeroData = {
-        poster_path: data?.poster_path || "https://placehold.co/310x480?text=Not Poster&?font=poppins",
+        poster_path: data?.poster_path || posterPlaceholder,
         backdrop_path: data?.backdrop_path || "",
         title: data?.title || "No title",
         tagline: data?.tagline || "No tagline",
@@ -48,7 +51,7 @@ const Moviedetail = () => {
     return (
         <div className="bg-blackish pb-10">
             <Mainhero {...mainHeroData}/>
-            <div className="mt-8 max-w-[65%] mx-auto flex gap-4">
+            <div className="mt-8 sm:max-w-[65%] mx-auto flex flex-col-reverse sm:flex-row gap-4">
                 {/* left */}
                 <div className="text-white w-fit px-4 min-w-[75%]">
                     {/* cast */}

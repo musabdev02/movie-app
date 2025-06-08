@@ -27,7 +27,7 @@ const Credits = ({ id }: { id: number }) => {
 
 
     return (
-        <div className="mt-4 flex gap-4">
+        <div className="mt-4 flex gap-4 flex-wrap sm:flex-nowrap">
 
             {
               data &&  data?.cast.slice(0, 5).map((item: CreditItems) => <Singlecast key={item.id} name={item?.name} profile_path={item?.profile_path} character={item?.character}/>)

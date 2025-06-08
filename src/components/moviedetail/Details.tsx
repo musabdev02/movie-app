@@ -9,7 +9,7 @@ interface DetailsProps {
 
 const Details = ({ data }: DetailsProps) => {
     return (
-        <div className="py-8 px-4 text-white">
+        <div className="py-4 sm:py-8 px-4 text-white">
             <a href={data?.homepage || '#'} target="_blank" className="flex gap-2 items-center text-blue-400 hover:underline"> <Earth size={18} />Vist Homepage</a>
             <div className="mt-8 flex flex-col gap-6">
                 <div>
